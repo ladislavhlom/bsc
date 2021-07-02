@@ -18,7 +18,7 @@ public class InMemoryRecordRepository implements RecordRepository {
 
     @Override
     public void putRecord(String postalCode, BigDecimal weight) {
-        log.info("Puting record into map: {} {}", postalCode, weight);
+        log.info("Putting record into map: {} {}", postalCode, weight);
         if (records.containsKey(postalCode)) {
             records.replace(postalCode, records.get(postalCode).add(weight));
         } else {
