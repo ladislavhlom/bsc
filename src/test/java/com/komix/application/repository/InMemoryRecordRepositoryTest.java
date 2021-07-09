@@ -30,7 +30,7 @@ class InMemoryRecordRepositoryTest {
 
         List<ExportData> result = inMemoryRecordRepository.exportData();
 
-        Assertions.assertEquals(BigDecimal.valueOf(expected), result.get(0).getWeight(), "neocekavany");
+        Assertions.assertEquals(BigDecimal.valueOf(expected), result.get(0).getWeight(), "Chybny soucet");
     }
 
     private static Stream<Arguments> provideDataForRecordWithExpectedResult() {

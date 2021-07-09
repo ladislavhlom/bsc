@@ -22,7 +22,7 @@ class InputValidatorServiceTest {
 
         boolean result = inputValidatorService.isInputValid(input);
 
-        Assertions.assertTrue(result, "neocekavany");
+        Assertions.assertTrue(result, "Validni input by mel vracet true");
     }
 
     @ParameterizedTest
@@ -31,6 +31,6 @@ class InputValidatorServiceTest {
 
         boolean result = inputValidatorService.isInputValid(input);
 
-        Assertions.assertFalse(result, "neocekavany");
+        Assertions.assertFalse(result, "Nevalidni input by mel vracet false");
     }
 }

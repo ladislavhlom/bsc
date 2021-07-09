@@ -1,26 +1,24 @@
 package com.komix.application.input;
 
 import com.komix.application.service.DataProcessService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class InputServiceConsoleImpl implements InputService {
 
     private static final String EXIT_LINE = "quit";
 
-    @Autowired
-    private InputValidatorServiceImpl validatorService;
+    private final InputValidatorServiceImpl validatorService;
 
-    @Autowired
-    private InputParserServiceImpl parserService;
+    private final InputParserServiceImpl parserService;
 
-    @Autowired
-    private DataProcessService dataProcessService;
+    private final DataProcessService dataProcessService;
 
     @Override
     public void startReadingInput() {

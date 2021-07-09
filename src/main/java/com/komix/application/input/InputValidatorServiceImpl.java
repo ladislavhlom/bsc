@@ -12,7 +12,7 @@ public class InputValidatorServiceImpl implements InputValidatorService {
 
     private static final Pattern PATTERN_INPUT = Pattern.compile("^(\\d*\\.?\\d+) (\\d+)$");
     private static final Pattern PATTERN_WEIGHT = Pattern.compile("^(\\d+)(?:.\\d{1,3})?\\r?$");
-    private static final Pattern PATTERN_POSTAL_CODE = Pattern.compile("^[0-9]{5,5}$");
+    private static final Pattern PATTERN_POSTAL_CODE = Pattern.compile("^[0-9]{5}$");
 
     @Override
     public boolean isInputValid(String line) {

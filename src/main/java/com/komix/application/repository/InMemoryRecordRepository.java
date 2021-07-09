@@ -17,7 +17,7 @@ public class InMemoryRecordRepository implements RecordRepository {
     private final Map<String, BigDecimal> records = new ConcurrentHashMap<>();
 
     @Override
-    public void putRecord(String postalCode, BigDecimal weight) {
+    public synchronized void putRecord(String postalCode, BigDecimal weight) {
         log.info("Putting record into map: {} {}", postalCode, weight);
         if (records.containsKey(postalCode)) {
             records.replace(postalCode, records.get(postalCode).add(weight));

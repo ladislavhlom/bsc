@@ -14,24 +14,22 @@ import java.util.Locale;
 @Slf4j
 public class OutputServiceConsoleImpl implements OutputService {
 
-    private final DecimalFormat df = new DecimalFormat();
+    private final DecimalFormat decimalFormat = new DecimalFormat();
 
     @Value("${output.fraction.digits}")
     private int fractionDigits;
 
     @PostConstruct
     private void postConstruct() {
-        df.setMaximumFractionDigits(fractionDigits);
-        df.setMinimumFractionDigits(fractionDigits);
+        decimalFormat.setMaximumFractionDigits(fractionDigits);
+        decimalFormat.setMinimumFractionDigits(fractionDigits);
         DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
         otherSymbols.setDecimalSeparator('.');
-        df.setDecimalFormatSymbols(otherSymbols);
+        decimalFormat.setDecimalFormatSymbols(otherSymbols);
     }
 
     @Override
     public void printExportData(ExportData data) {
-        System.out.println(
-                String.format("%s %s", data.getPostalCode(), df.format(data.getWeight()))
-        );
+        System.out.printf("%s %s%n", data.getPostalCode(), decimalFormat.format(data.getWeight()));
     }
 }
